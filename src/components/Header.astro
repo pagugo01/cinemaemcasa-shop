@@ -4,15 +4,15 @@ import { siteConfig } from '../data/siteConfig';
 const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
 ---
 
-<header class="sticky top-0 z-50 w-full bg-[#070114]/90 backdrop-blur-md border-b border-purple-900/40 transition-all duration-300">
+<header class="sticky top-0 z-50 w-full bg-[#030008]/90 backdrop-blur-md border-b border-purple-900/30 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
-      <!-- Logo (SKY+ Neon Magenta/Violet Inspired) -->
+      <!-- Logo (SKY+ Style) -->
       <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#ff007a] via-[#7928ca] to-[#00f0ff] p-[2px] shadow-magenta-glow group-hover:scale-105 transition-transform duration-300">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#ff007a] via-[#7928ca] to-[#00f0ff] p-[2px] shadow-magenta-glow group-hover:scale-105 transition-transform">
           <div class="w-full h-full bg-[#070114] rounded-[10px] flex items-center justify-center">
-            <svg class="w-5 h-5 text-[#ff007a] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-[#ff007a]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M4 6.47L5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4z"/>
             </svg>
           </div>
@@ -21,51 +21,54 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
           <span class="text-xl sm:text-2xl font-black tracking-tight text-white font-display uppercase leading-none">
             CINEMA<span class="text-[#ff007a]">EM</span>CASA
           </span>
-          <span class="text-[10px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">
+          <span class="text-[9px] font-bold text-slate-400 tracking-widest uppercase mt-0.5">
             TV & STREAMING 4K
           </span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-8">
-        <a href="/" class="text-sm font-bold text-white hover:text-[#ff007a] transition">
-          Início
+      <!-- Desktop Nav (Exact Menu from SKY+ MenuHeaderTranslucentOTT) -->
+      <nav class="hidden lg:flex items-center gap-7">
+        <a href="#planos" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Planos
         </a>
-        <a href="/planos" class="text-sm font-bold text-slate-300 hover:text-[#ff007a] transition">
-          Planos & Telas
+        <a href="#extras" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Extras
         </a>
-        <a href="/canais" class="text-sm font-bold text-slate-300 hover:text-[#ff007a] transition">
-          Canais Ao Vivo
+        <a href="#ao-vivo" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Ao vivo
         </a>
-        <a href="/filmes-e-series" class="text-sm font-bold text-slate-300 hover:text-[#ff007a] transition">
-          Filmes & Séries
+        <a href="#esportes" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Esportes
         </a>
-        <a href="/esportes" class="text-sm font-bold text-slate-300 hover:text-[#ff007a] transition">
-          Futebol & UFC
+        <a href="#banner" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Assinar
         </a>
-        <a href="/como-funciona" class="text-sm font-bold text-slate-300 hover:text-[#ff007a] transition">
-          Como Funciona
+        <a href="#catalogo" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Catálogo
+        </a>
+        <a href="#ajuda" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition">
+          Ajuda
         </a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Right Action Buttons (SKY+ Style) -->
       <div class="hidden sm:flex items-center gap-4">
         <a
           href={testWaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-purple-500/30 transition hover:border-[#ff007a]"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/15 border border-white/20 transition hover:border-[#00f0ff]"
         >
-          <span class="w-2 h-2 rounded-full bg-[#00f0ff] animate-ping"></span>
+          <svg class="w-3.5 h-3.5 text-[#00f0ff]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
           <span>Teste 6h Grátis</span>
         </a>
 
         <a
-          href="/planos"
+          href="#planos"
           class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] hover:opacity-95 shadow-magenta-glow transition hover:scale-105 active:scale-95"
         >
-          ASSINAR AGORA
+          Assinar
         </a>
       </div>
 
@@ -75,17 +78,17 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
           href={testWaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-3 py-1.5 rounded-full text-[11px] font-bold text-white bg-[#ff007a]"
+          class="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-[#ff007a]"
         >
           Teste 6h
         </a>
         <button
           id="mobile-menu-btn"
           aria-label="Menu"
-          class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 focus:outline-none"
+          class="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
@@ -93,32 +96,21 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
     </div>
   </div>
 
-  <!-- Mobile Menu Dropdown -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-purple-900/50 bg-[#070114]/95 px-4 pt-4 pb-6 space-y-3">
-    <a href="/" class="block px-3 py-2 rounded-lg text-base font-bold text-white hover:bg-white/5">
-      Início
-    </a>
-    <a href="/planos" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-300 hover:bg-white/5">
-      Planos & Telas (1, 2 e 3 Telas)
-    </a>
-    <a href="/canais" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-300 hover:bg-white/5">
-      Canais Ao Vivo
-    </a>
-    <a href="/filmes-e-series" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-300 hover:bg-white/5">
-      Filmes & Séries
-    </a>
-    <a href="/esportes" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-300 hover:bg-white/5">
-      Futebol & UFC
-    </a>
-    <a href="/como-funciona" class="block px-3 py-2 rounded-lg text-base font-bold text-slate-300 hover:bg-white/5">
-      Como Funciona
-    </a>
+  <!-- Mobile Dropdown -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-purple-900/40 bg-[#070114]/95 px-4 pt-4 pb-6 space-y-3">
+    <a href="#planos" class="block px-3 py-2 text-sm font-bold text-white hover:bg-white/5 rounded-lg">Planos</a>
+    <a href="#extras" class="block px-3 py-2 text-sm font-bold text-slate-300 hover:bg-white/5 rounded-lg">Extras & Streamings</a>
+    <a href="#ao-vivo" class="block px-3 py-2 text-sm font-bold text-slate-300 hover:bg-white/5 rounded-lg">Ao vivo</a>
+    <a href="#esportes" class="block px-3 py-2 text-sm font-bold text-slate-300 hover:bg-white/5 rounded-lg">Esportes</a>
+    <a href="#banner" class="block px-3 py-2 text-sm font-bold text-slate-300 hover:bg-white/5 rounded-lg">Assinar</a>
+    <a href="#catalogo" class="block px-3 py-2 text-sm font-bold text-slate-300 hover:bg-white/5 rounded-lg">Catálogo</a>
+    <a href="#ajuda" class="block px-3 py-2 text-sm font-bold text-slate-300 hover:bg-white/5 rounded-lg">Ajuda</a>
     <div class="pt-2">
       <a
-        href="/planos"
-        class="block w-full py-3 text-center rounded-xl font-black text-sm uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow"
+        href="#planos"
+        class="block w-full py-3 text-center rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow"
       >
-        VER NOSSOS PLANOS
+        VER PLANOS
       </a>
     </div>
   </div>
@@ -127,8 +119,5 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
-
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-  });
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
 </script>

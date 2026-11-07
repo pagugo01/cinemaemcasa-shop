@@ -1,135 +1,142 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import BannerPremium from '../components/BannerPremium.astro';
 import { siteConfig } from '../data/siteConfig';
 
 const defaultWaMsg = encodeURIComponent(siteConfig.whatsapp.defaultMsg);
 const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWaMsg}`;
+
+const liveChannels = [
+  { name: 'SporTV 4K', cat: 'Esportes', color: 'from-blue-600 to-cyan-500' },
+  { name: 'Premiere Clubes', cat: 'Futebol PPV', color: 'from-emerald-600 to-green-500' },
+  { name: 'ESPN 1 ao 6', cat: 'Internacional', color: 'from-red-600 to-rose-500' },
+  { name: 'Canal Combate', cat: 'UFC Ao Vivo', color: 'from-amber-600 to-orange-500' },
+  { name: 'Telecine Premium', cat: 'Filmes 4K', color: 'from-rose-700 to-red-600' },
+  { name: 'HBO & Max', cat: 'Séries Originais', color: 'from-purple-700 to-indigo-600' },
+  { name: 'TV Globo 4K', cat: 'Todas as Afiliadas', color: 'from-blue-500 to-sky-400' },
+  { name: 'Discovery Kids', cat: 'Infantil', color: 'from-teal-500 to-emerald-400' },
+  { name: 'GloboNews', cat: 'Notícias 24h', color: 'from-red-700 to-red-500' },
+  { name: 'CazéTV', cat: 'Ao Vivo 60FPS', color: 'from-yellow-500 to-amber-600' }
+];
 ---
 
 <Layout>
-  <!-- 1. HERO SPOTLIGHT SECTION (SKY+ Neon Style) -->
-  <section class="relative min-h-[90vh] flex flex-col justify-center overflow-hidden bg-[#070114] pt-12 pb-20">
+  
+  <!-- ARTICLE 1: BannerHeroCarousel (Carrossel Hero estilo SKY+) -->
+  <section class="relative min-h-[85vh] lg:min-h-[92vh] flex items-center bg-[#070114] overflow-hidden">
     
-    <!-- Background Hero Visual (Desktop Banner) -->
-    <div class="absolute inset-0 z-0 pointer-events-none">
-      <img
-        src="/images/hero_institucional.png"
-        alt="Cinema em Casa - Streaming e TV"
-        class="absolute right-0 top-0 h-full w-full lg:w-4/5 object-cover object-right opacity-40 lg:opacity-75 filter brightness-95"
-      />
-      <!-- Radial & Gradient Fades -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#070114] via-[#070114]/90 to-transparent w-full lg:w-3/5"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#070114] via-[#070114]/50 to-transparent"></div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="max-w-2xl text-left">
-        
-        <!-- Live Neon Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#ff007a]/20 to-[#7928ca]/20 border border-[#ff007a]/40 text-[#ff007a] text-xs font-black tracking-widest uppercase mb-6 shadow-magenta-glow">
-          <span class="w-2 h-2 rounded-full bg-[#ff007a] animate-pulse"></span>
-          <span>O STREAMING Nº 1 DO BRASIL</span>
-        </div>
-
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white font-display uppercase tracking-tight leading-[1.05] mb-6">
-          O MELHOR DA TV E DOS <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ff007a] via-[#9d4edd] to-[#00f0ff]">STREAMINGS</span> EM UM SÓ LUGAR.
-        </h1>
-
-        <p class="text-base sm:text-xl text-slate-300 font-normal leading-relaxed mb-8 max-w-xl">
-          Mais de 2.500 canais ao vivo, filmes de cinema, séries consagradas e todos os jogos de futebol em 4K. Conecte <strong class="text-white">1, 2 ou 3 telas</strong> sem travamentos e sem antenas.
-        </p>
-
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-10">
-          <a
-            href="#planos"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-full text-sm font-black text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] hover:opacity-95 shadow-magenta-glow tracking-wider uppercase transition-all duration-300 hover:scale-105 active:scale-95"
-          >
-            VER PLANOS & TELAS
-          </a>
-
-          <a
-            href={testWaLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center px-7 py-4 rounded-full text-sm font-bold text-slate-200 bg-white/5 hover:bg-white/10 border border-purple-500/40 hover:border-[#00f0ff] transition"
-          >
-            <span class="w-2 h-2 rounded-full bg-[#00f0ff] mr-2 animate-ping"></span>
-            Solicitar Teste 6h Grátis
-          </a>
-        </div>
-
-        <!-- Trust Badges -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-purple-900/40 text-xs font-bold text-slate-400">
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00f0ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            <span>+120.000 Títulos</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00f0ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            <span>Qualidade 4K Ultra HD</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00f0ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            <span>2 e 3 Telas Livres</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00f0ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-            <span>Anti-Trava 9.0</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. STREAMING PARTNERS COMBOS (SKY+ VOD BANNER) -->
-  <section class="py-12 bg-[#0c0320] border-y border-purple-900/40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-        <div>
-          <span class="text-xs font-bold text-[#ff007a] uppercase tracking-widest">TODOS OS CATÁLOGOS INTEGRADOS</span>
-          <h2 class="text-2xl sm:text-3xl font-black text-white font-display uppercase tracking-tight mt-1">
-            ECONOMIZE MAIS DE R$ 200 POR MÊS EM ASSINATURAS
-          </h2>
-          <p class="text-sm text-slate-300 mt-2 max-w-xl">
-            Tenha acesso aos melhores conteúdos do cinema, séries exclusivas e canais por assinatura em um único lugar, sem precisar pagar várias faturas separadas.
-          </p>
-        </div>
-
-        <!-- Banner Visual -->
-        <div class="w-full lg:w-auto flex-shrink-0">
+    <!-- Slides Container -->
+    <div id="hero-slider" class="relative w-full h-full min-h-[85vh] lg:min-h-[92vh] flex items-center">
+      
+      <!-- Slide 1: Institucional / Clássicos -->
+      <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-700 z-10 flex items-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
           <img
-            src="/images/banner_streaming_combo.png"
-            alt="Combos de Streaming Integrados"
-            class="h-16 sm:h-20 w-auto object-contain rounded-xl p-2 bg-black/40 border border-purple-500/30"
+            src="/images/hero_institucional.png"
+            alt="Maratone seus clássicos"
+            class="w-full h-full object-cover object-right-top filter brightness-90"
           />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#070114] via-[#070114]/90 to-transparent w-full lg:w-3/5"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#070114] via-transparent to-transparent"></div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+          <div class="max-w-xl text-left">
+            <span class="inline-block text-xs font-black uppercase tracking-widest text-[#00f0ff] font-mono mb-3">
+              ASSINE AGORA
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display leading-[1.05] mb-4">
+              MARATONE SEUS CLÁSSICOS.
+            </h1>
+            <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed">
+              Cinema em Casa é seu aplicativo para ter o melhor da TV e dos streamings em um só lugar. Planos de 1, 2 e 3 telas sem cabos ou antenas.
+            </p>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <a
+                href="#planos"
+                class="inline-flex items-center justify-center px-8 py-4 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+              >
+                Assinar
+              </a>
+              <a
+                href={testWaLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center px-7 py-4 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition"
+              >
+                Experimentar 6h Grátis
+              </a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Slide 2: Futebol e Esportes -->
+      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-700 z-0 flex items-center pointer-events-none">
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/images/hero_futebol.png"
+            alt="Futebol é no Cinema em Casa"
+            class="w-full h-full object-cover object-right-top filter brightness-90"
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#070114] via-[#070114]/90 to-transparent w-full lg:w-3/5"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#070114] via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-16">
+          <div class="max-w-xl text-left">
+            <span class="inline-block text-xs font-black uppercase tracking-widest text-[#ff007a] font-mono mb-3">
+              FUTEBOL AO VIVO EM 4K
+            </span>
+            <h2 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display leading-[1.05] mb-4">
+              FUTEBOL É NO CINEMA EM CASA.
+            </h2>
+            <p class="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed">
+              Acompanhe os maiores campeonatos de futebol do Brasil e do mundo (Brasileirão, Libertadores, Champions) além do UFC card completo sem delay.
+            </p>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pointer-events-auto">
+              <a
+                href="#planos"
+                class="inline-flex items-center justify-center px-8 py-4 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+              >
+                Assinar
+              </a>
+              <a
+                href="#esportes"
+                class="inline-flex items-center justify-center px-7 py-4 rounded-full text-xs font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition"
+              >
+                Ver Jogos Inclusos
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+      <button class="slide-indicator w-8 h-2 rounded-full bg-[#ff007a] transition-all" data-slide="0" aria-label="Slide 1"></button>
+      <button class="slide-indicator w-2.5 h-2 rounded-full bg-white/30 transition-all hover:bg-white/60" data-slide="1" aria-label="Slide 2"></button>
     </div>
   </section>
 
-  <!-- 3. OFFICIAL PRICING & SCREENS TABLE (EXACT MATCH TO APPROVED PLANS) -->
-  <section id="planos" class="py-24 bg-[#070114] relative overflow-hidden">
-    <!-- Ambient Background Glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#7928ca]/15 blur-[120px] rounded-full pointer-events-none"></div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- ARTICLE 3: CardProductSubscriptionCarousel (Escolha o plano ideal pra você) -->
+  <section id="planos" class="py-20 bg-[#070114] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs sm:text-sm font-black tracking-widest text-[#00f0ff] uppercase font-mono">
-          SELECIONE SEU PLANO
-        </span>
-        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-display uppercase tracking-tight mt-3 mb-4">
-          ASSINATURAS FLEXÍVEIS & SEM MULTA.
+        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mb-3">
+          ESCOLHA O PLANO IDEAL PRA VOCÊ
         </h2>
-        <p class="text-base sm:text-lg text-slate-400">
-          Escolha a quantidade de telas simultâneas que melhor atende a sua casa. Ativação imediata em 2 minutos.
+        <p class="text-sm sm:text-base text-slate-300">
+          O Cinema em Casa tem várias opções, pra você se divertir com o melhor do streaming e da TV ao vivo.
         </p>
       </div>
 
-      <!-- Plans Grid (4 Columns) -->
+      <!-- 4 Official Plans Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         {siteConfig.plans.map((plan) => {
           const planWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.planMsg(plan.name))}`;
@@ -141,7 +148,6 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
                   : 'bg-[#100326] border border-purple-900/50 hover:border-purple-500/50'
               }`}
             >
-              <!-- Top Badge -->
               {plan.badge && (
                 <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
                   <span class={`px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-md ${plan.badgeColor || 'bg-blue-600 text-white'}`}>
@@ -151,7 +157,6 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
               )}
 
               <div>
-                <!-- Plan Header -->
                 <div class="text-center pt-2 pb-6 border-b border-purple-900/40">
                   <h3 class="text-base font-black text-white uppercase tracking-tight">
                     {plan.name}
@@ -161,9 +166,8 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
                     {plan.screens}
                   </span>
 
-                  <!-- Price -->
                   <div class="mt-4 flex items-baseline justify-center gap-1">
-                    <span class="text-xs font-bold text-slate-400">R$</span>
+                    <span class="text-xs font-bold text-slate-400">Apenas R$</span>
                     <span class="text-4xl sm:text-5xl font-black text-white font-display tracking-tight">
                       {plan.price}
                     </span>
@@ -181,7 +185,6 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
                   </p>
                 </div>
 
-                <!-- Features List -->
                 <ul class="py-6 space-y-3 text-xs text-slate-300">
                   {plan.features.map((feat) => (
                     <li class="flex items-start gap-2.5">
@@ -194,7 +197,6 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
                 </ul>
               </div>
 
-              <!-- CTA Button -->
               <div class="pt-4 border-t border-purple-900/40">
                 <a
                   href={planWaLink}
@@ -209,145 +211,200 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
                   {plan.ctaText}
                 </a>
               </div>
-
             </div>
           );
         })}
       </div>
 
-      <!-- Under Price Guarantee -->
-      <div class="mt-12 text-center text-xs text-slate-400 flex flex-wrap items-center justify-center gap-6">
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          Ativação Instantânea via Pix
-        </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          Sem Contratos ou Fidelidade
-        </span>
-        <span class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Suporte Prioritário VIP WhatsApp
-        </span>
-      </div>
-
     </div>
   </section>
 
-  <!-- 4. LIVE SPORTS & UFC HIGHLIGHT (SKY+ FOOTBALL BANNER) -->
-  <section class="py-20 bg-gradient-to-b from-[#070114] via-[#100326] to-[#070114] border-y border-purple-900/40 relative overflow-hidden">
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="rounded-3xl bg-[#14062f] p-8 sm:p-12 border border-purple-500/30 shadow-card-glow">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
-              <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-              TRANSMISSÕES EXCLUSIVAS AO VIVO
-            </div>
-            
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-display uppercase tracking-tight leading-tight mb-4">
-              LIBERTADORES, SUL-AMERICANA E UFC CARD COMPLETO.
-            </h2>
-            
-            <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
-              Não perca nenhum minuto da busca pela Glória Eterna! Assista aos confrontos mais quentes do continente e a todos os cards do UFC sem pagar pay-per-view adicional.
-            </p>
-
-            <div class="flex flex-wrap gap-3 text-xs font-semibold text-slate-200 mb-8">
-              <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-purple-500/30">✓ Sem Delay nos Jogos</span>
-              <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-purple-500/30">✓ Narração Original PT-BR</span>
-              <span class="px-3 py-1.5 rounded-lg bg-white/5 border border-purple-500/30">✓ 60 FPS Alta Fluidez</span>
-            </div>
-
-            <a
-              href={testWaLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow transition hover:scale-105 active:scale-95"
-            >
-              <span>TESTAR NOS PRÓXIMOS JOGOS</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-              </svg>
-            </a>
-          </div>
-
-          <!-- Official SKY+ Football Action Graphic -->
-          <div class="relative flex items-center justify-center">
-            <div class="w-full aspect-video rounded-2xl overflow-hidden border border-purple-500/40 shadow-2xl relative group">
-              <img
-                src="/images/hero_futebol.png"
-                alt="Futebol Ao Vivo - Cinema em Casa"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                <div>
-                  <span class="text-[10px] font-bold text-[#ff007a] tracking-widest uppercase">AO VIVO AGORA</span>
-                  <p class="text-sm font-black text-white uppercase">CONMEBOL LIBERTADORES 2026</p>
-                </div>
-                <span class="px-2.5 py-1 rounded bg-[#ff007a] text-white text-[11px] font-black uppercase">4K ULTRA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. MULTI-DEVICE COMPATIBILITY SECTION (Using Official Store & Device Badges) -->
-  <section class="py-20 bg-[#070114]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <!-- ARTICLE 6: BannerStreamingInfoPoster (Mais de 100 canais ao vivo) -->
+  <section id="ao-vivo" class="py-20 bg-[#0c0320] border-y border-purple-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <span class="text-xs sm:text-sm font-bold text-[#00f0ff] uppercase tracking-widest font-mono">ASSISTA ONDE QUISER</span>
-      <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight font-display uppercase mt-2 mb-4">
-        DISPONÍVEL EM TODAS AS SUAS TELAS.
-      </h2>
-      <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-16">
-        Um único aplicativo simples, leve e intuitivo. Baixe e assista na TV da sala, no quarto ou no smartphone em qualquer lugar.
-      </p>
+      <div class="max-w-2xl mb-12">
+        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mb-3">
+          MAIS DE 100 CANAIS AO VIVO
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Curta filmes, séries, documentários, esportes e acompanhe as últimas notícias em tempo real. Mais de 2.500 opções liberadas no Cinema em Casa.
+        </p>
+      </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-        {siteConfig.devices.map((dev) => (
-          <div class="p-6 rounded-2xl bg-[#120329] border border-purple-900/40 flex flex-col items-center text-center group hover:border-[#ff007a] transition-all duration-300 hover:-translate-y-1">
-            <div class="w-14 h-14 mb-3 p-2 rounded-xl bg-white/5 flex items-center justify-center">
-              <img src={dev.img} alt={dev.name} class="max-h-full max-w-full object-contain filter brightness-110" />
+      <!-- Live Channels Showcase Row -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        {liveChannels.map((ch) => (
+          <div class="p-5 rounded-2xl bg-[#14062f] border border-purple-900/40 hover:border-[#00f0ff] transition group hover:-translate-y-1">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
+              {ch.cat}
+            </span>
+            <h3 class="text-base font-black text-white uppercase group-hover:text-[#00f0ff] transition">
+              {ch.name}
+            </h3>
+            <div class="mt-3 flex items-center gap-1.5 text-[10px] text-emerald-400 font-bold">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Sinal Ao Vivo 4K
             </div>
-            <span class="text-sm font-bold text-white mt-1">{dev.name}</span>
-            <span class="text-[11px] text-slate-400 mt-1">{dev.sub}</span>
           </div>
         ))}
       </div>
 
+      <div class="mt-8 text-center sm:text-left">
+        <a
+          href="/canais"
+          class="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#00f0ff] hover:underline"
+        >
+          <span>VER GRADE COMPLETA COM MAIS DE 2.500 CANAIS</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
-  <!-- 6. ACCORDION FAQ -->
-  <section class="py-20 bg-[#0a021c] border-t border-purple-900/40">
+  <!-- ARTICLE 8: BannerStreamingInfoContent (Tudo o que você gosta, em um só lugar) -->
+  <section id="catalogo" class="py-20 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-gradient-to-r from-[#14062f] via-[#1f0947] to-[#14062f] border border-purple-500/40 p-8 sm:p-12 overflow-hidden shadow-card-glow">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white uppercase font-display tracking-tight leading-tight mb-4">
+              TUDO O QUE VOCÊ GOSTA, EM UM SÓ LUGAR
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              Monte seu plano Cinema em Casa com Disney+ Premium, HBO Max, Prime Video, Paramount+ e muitos outros conteúdos sem pagar faturas extras separadas.
+            </p>
+            <a
+              href="#planos"
+              class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+            >
+              <span>Personalizar meu plano Cinema em Casa</span>
+            </a>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-purple-500/40 shadow-2xl">
+            <img src="/images/banner_vod.png" alt="Catálogo VOD Cinema em Casa" class="w-full h-auto object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 10: BannerPremium (VOCÊ TEM TUDO NO CINEMA EM CASA - EXATO COMO NO PRINT) -->
+  <BannerPremium />
+
+  <!-- ARTICLE 13: BannerStreamingInfoContent (Só pra quem é fã de futebol) -->
+  <section id="esportes" class="py-20 bg-[#0c0320] border-t border-purple-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mb-3">
+          SÓ PRA QUEM É FÃ DE FUTEBOL
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Não perca nenhum lance da Champions, do Brasileirão, da Libertadores e muito mais. Transmissões 60 FPS com áudio original.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto rounded-3xl overflow-hidden border border-purple-500/40 shadow-card-glow mb-8">
+        <img src="/images/banner_canais.png" alt="Futebol ao Vivo" class="w-full h-auto object-cover" />
+      </div>
+
+      <div class="text-center">
+        <a
+          href={testWaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+        >
+          <span>Assistir as partidas ao vivo</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 15: BannerHighlightHard (Plano Streaming) -->
+  <section id="banner" class="py-20 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-[#14062f] p-8 sm:p-12 border border-purple-500/40 shadow-card-glow">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <span class="text-xs font-mono font-black text-[#00f0ff] uppercase tracking-widest">
+              SUPER COMBO LIBERADO
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white uppercase font-display tracking-tight mt-2 mb-4">
+              PLANO STREAMING
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              Amazon Prime, HBO Max, Disney+ Premium, Paramount+ e NFL: toda a diversão que você ama em um único plano com ativação instantânea em 2 minutos.
+            </p>
+            <a
+              href="#planos"
+              class="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+            >
+              Assinar Agora
+            </a>
+          </div>
+
+          <div class="rounded-2xl overflow-hidden border border-purple-500/40">
+            <img src="/images/banner_streaming_combo.png" alt="Plano Streaming Combos" class="w-full h-auto object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 17: BannerSectionDevices (Assista como e onde quiser) -->
+  <section class="py-20 bg-[#0c0320] border-t border-purple-900/40 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mb-3">
+        ASSISTA COMO E ONDE QUISER
+      </h2>
+      <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto mb-10">
+        Baixe o aplicativo Cinema em Casa no seu celular, smart TV ou dispositivo de streaming.
+      </p>
+
+      <!-- Mockup Banner -->
+      <div class="max-w-3xl mx-auto mb-12">
+        <img src="/images/banner_devices.png" alt="Dispositivos Conectados" class="w-full h-auto object-contain" />
+      </div>
+
+      <!-- Device Logos Row -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {siteConfig.devices.map((dev) => (
+          <div class="p-5 rounded-2xl bg-[#14062f] border border-purple-900/40 flex flex-col items-center justify-center">
+            <div class="w-12 h-12 mb-2 p-2 rounded-xl bg-white/5 flex items-center justify-center">
+              <img src={dev.img} alt={dev.name} class="max-h-full max-w-full object-contain filter brightness-110" />
+            </div>
+            <span class="text-xs font-bold text-white mt-1">{dev.name}</span>
+            <span class="text-[10px] text-slate-400">{dev.sub}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE 19: FaqQuickAccordion (Outras informações - FAQ) -->
+  <section id="ajuda" class="py-20 bg-[#070114] border-t border-purple-900/40">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-16">
-        <span class="text-xs font-bold text-[#ff007a] uppercase tracking-widest font-mono">DÚVIDAS FREQUENTES</span>
-        <h2 class="text-3xl sm:text-5xl font-black text-white font-display uppercase tracking-tight mt-2">
-          PERGUNTAS & RESPOSTAS
+        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mb-3">
+          OUTRAS INFORMAÇÕES
         </h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-2">
-          Tudo o que você precisa saber antes de solicitar seu teste ou ativar sua assinatura.
+        <p class="text-sm text-slate-400">
+          Perguntas frequentes sobre a plataforma, planos, telas e suporte.
         </p>
       </div>
 
       <div class="space-y-4">
-        {siteConfig.faqs.map((item, idx) => (
-          <details class="group rounded-2xl bg-[#13042e] border border-purple-900/40 p-6 [&_summary::-webkit-details-marker]:hidden transition cursor-pointer">
+        {siteConfig.faqs.map((item) => (
+          <details class="group rounded-2xl bg-[#120329] border border-purple-900/40 p-6 [&_summary::-webkit-details-marker]:hidden transition cursor-pointer">
             <summary class="flex items-center justify-between font-bold text-base text-white group-open:text-[#00f0ff]">
               <span>{item.q}</span>
               <span class="ml-4 flex-shrink-0 text-purple-400 transition group-open:rotate-180">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
               </span>
             </summary>
             <p class="mt-4 text-sm text-slate-300 leading-relaxed border-t border-purple-900/40 pt-4">
@@ -357,41 +414,15 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
         ))}
       </div>
 
-    </div>
-  </section>
-
-  <!-- 7. FINAL VIP WHATSAPP BANNER -->
-  <section class="py-20 bg-gradient-to-r from-[#ff007a] via-[#7928ca] to-[#00f0ff] relative overflow-hidden text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
-      <span class="px-4 py-1.5 rounded-full bg-black/40 text-white text-xs font-black uppercase tracking-widest border border-white/20">
-        EXPERIÊNCIA CINEMA EM CASA
-      </span>
-
-      <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mt-4 mb-4">
-        PRONTO PARA TRANSFORMAR SUA SALA EM UM VERDADEIRO CINEMA?
-      </h2>
-
-      <p class="text-white/90 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-medium">
-        Receba seus dados de acesso em menos de 2 minutos no WhatsApp e teste gratuitamente por 6 horas.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div class="mt-10 text-center">
         <a
           href={testWaLink}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-black uppercase tracking-wider text-black bg-white hover:bg-slate-100 shadow-2xl transition hover:scale-105 active:scale-95"
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#00f0ff] hover:underline"
         >
-          <svg class="w-5 h-5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          <span>SOLICITAR TESTE GRÁTIS NO WHATSAPP</span>
-        </a>
-
-        <a
-          href="#planos"
-          class="inline-flex items-center px-7 py-4 rounded-full text-sm font-bold text-white bg-black/40 hover:bg-black/60 border border-white/30 transition"
-        >
-          Ver Todos os Planos
+          <span>FALAR COM NOSSA CENTRAL DE AJUDA NO WHATSAPP</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
 
@@ -399,3 +430,42 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWa
   </section>
 
 </Layout>
+
+<script>
+  // Simple Hero Carousel Slider
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.slide-indicator');
+  let current = 0;
+
+  function showSlide(index: number) {
+    slides.forEach((s, i) => {
+      if (i === index) {
+        s.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
+        s.classList.add('opacity-100', 'z-10');
+      } else {
+        s.classList.remove('opacity-100', 'z-10');
+        s.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+      }
+    });
+    dots.forEach((d, i) => {
+      if (i === index) {
+        d.classList.remove('bg-white/30', 'w-2.5');
+        d.classList.add('bg-[#ff007a]', 'w-8');
+      } else {
+        d.classList.remove('bg-[#ff007a]', 'w-8');
+        d.classList.add('bg-white/30', 'w-2.5');
+      }
+    });
+    current = index;
+  }
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => showSlide(idx));
+  });
+
+  // Auto slide every 6 seconds
+  setInterval(() => {
+    const next = (current + 1) % slides.length;
+    showSlide(next);
+  }, 6000);
+</script>

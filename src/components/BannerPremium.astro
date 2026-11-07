@@ -1,0 +1,274 @@
+---
+// BannerPremium.astro - Componente 1:1 com o Banner de Extras da SKY+
+import { siteConfig } from '../data/siteConfig';
+
+const defaultWaMsg = encodeURIComponent(siteConfig.whatsapp.defaultMsg);
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${defaultWaMsg}`;
+
+const extras = [
+  {
+    id: 'disney',
+    name: 'Disney+',
+    title: 'Disney+',
+    description: 'Viva a magia da Disney, Pixar, Marvel, Star Wars, National Geographic, ESPN e Hulu.',
+    planName: 'Disney+ Padrão',
+    price: 'R$ 49,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#143e4c]',
+    borderColor: 'border-[#1f5c70]',
+    activeBorder: 'ring-2 ring-[#00f0ff]',
+    image: '/images/banner_premium.png',
+    logoType: 'disney'
+  },
+  {
+    id: 'hbomax',
+    name: 'HBO Max',
+    title: 'HBO Max',
+    description: 'Filmes premiados, séries originais consagradas e os maiores lançamentos da Warner Bros e DC.',
+    planName: 'HBO Max',
+    price: 'R$ 44,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#182649]',
+    borderColor: 'border-[#273d75]',
+    activeBorder: 'ring-2 ring-[#7928ca]',
+    image: '/images/banner_vod.png',
+    logoType: 'hbomax'
+  },
+  {
+    id: 'telecine',
+    name: 'Telecine',
+    title: 'Telecine',
+    description: 'O melhor do cinema mundial com 6 canais ao vivo e mais de 2.000 filmes disponíveis a qualquer momento.',
+    planName: 'Telecine',
+    price: 'R$ 29,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#47151a]',
+    borderColor: 'border-[#6e2129]',
+    activeBorder: 'ring-2 ring-red-500',
+    image: '/images/hero_classicos.webp',
+    logoType: 'telecine'
+  },
+  {
+    id: 'premiere',
+    name: 'Premiere',
+    title: 'Premiere',
+    description: 'O melhor do futebol brasileiro: Brasileirão Séries A e B e Copa do Brasil com todos os jogos ao vivo.',
+    planName: 'Premiere',
+    price: 'R$ 59,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#0d4715]',
+    borderColor: 'border-[#177324]',
+    activeBorder: 'ring-2 ring-emerald-400',
+    image: '/images/hero_futebol.png',
+    logoType: 'premiere'
+  },
+  {
+    id: 'premiere-fid',
+    name: 'Premiere Fidelidade',
+    title: 'Premiere com Fidelidade',
+    description: 'Acompanhe a temporada completa do futebol nacional com economia no ciclo anual de 12 meses.',
+    planName: 'Fidelidade 12 Meses',
+    price: 'R$ 49,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#0d4715]',
+    borderColor: 'border-[#177324]',
+    activeBorder: 'ring-2 ring-emerald-400',
+    image: '/images/hero_futebol.png',
+    logoType: 'premiere'
+  },
+  {
+    id: 'sportynet',
+    name: 'SportyNet+',
+    title: 'SportyNet+',
+    description: 'Canais esportivos internacionais, tênis, automobilismo, lutas e coberturas especiais 24h.',
+    planName: 'SportyNet+',
+    price: 'R$ 29,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#1f1638]',
+    borderColor: 'border-[#382866]',
+    activeBorder: 'ring-2 ring-purple-400',
+    image: '/images/banner_canais.png',
+    logoType: 'sportynet'
+  },
+  {
+    id: 'paramount',
+    name: 'Paramount+',
+    title: 'Paramount+',
+    description: 'Uma montanha de entretenimento com grandes sucessos do cinema, produções originais e Libertadores.',
+    planName: 'Paramount+',
+    price: 'R$ 34,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#0c3f8c]',
+    borderColor: 'border-[#155fc7]',
+    activeBorder: 'ring-2 ring-blue-400',
+    image: '/images/hero_institucional.png',
+    logoType: 'paramount'
+  },
+  {
+    id: 'espn6',
+    name: 'ESPN 6',
+    title: 'ESPN 6',
+    description: 'Mais esportes ao vivo: esportes americanos, tênis, beisebol, hóquei e competições universitárias.',
+    planName: 'Fidelidade 12 Meses',
+    price: 'R$ 4,90',
+    period: 'MÊS',
+    bgColor: 'bg-[#471010]',
+    borderColor: 'border-[#751c1c]',
+    activeBorder: 'ring-2 ring-red-400',
+    image: '/images/banner_canais.png',
+    logoType: 'espn'
+  }
+];
+---
+
+<section id="extras" class="relative bg-black pt-10 pb-20 overflow-hidden">
+  
+  <!-- Backdrop Showcase Image Container (Grey's Anatomy Sunset Balcony) -->
+  <div class="relative w-full max-w-6xl mx-auto h-[260px] sm:h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-2xl">
+    <img
+      id="extra-backdrop"
+      src="/images/banner_premium.png"
+      alt="Destaque Streaming"
+      class="w-full h-full object-cover object-top transition-all duration-700 filter brightness-95"
+    />
+    <!-- Gradient Fade to Bottom -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+  </div>
+
+  <!-- Dynamic Title & Description (Directly below image) -->
+  <div class="relative z-10 max-w-4xl mx-auto text-center px-4 -mt-16 sm:-mt-20 mb-8">
+    <h3 id="extra-title" class="text-2xl sm:text-4xl font-black text-white font-display uppercase tracking-tight transition-all duration-300">
+      Disney+
+    </h3>
+    <p id="extra-desc" class="text-xs sm:text-sm text-slate-300 font-normal mt-2 max-w-2xl mx-auto transition-all duration-300">
+      Viva a magia da Disney, Pixar, Marvel, Star Wars, National Geographic, ESPN e Hulu.
+    </p>
+  </div>
+
+  <!-- Horizontal Carousel of Cards (Exact Match to SKY+ Screenshot) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-stretch gap-3 sm:gap-4 overflow-x-auto pb-6 pt-2 scrollbar-none justify-start lg:justify-center">
+      {extras.map((item, idx) => (
+        <button
+          type="button"
+          data-extra-id={item.id}
+          data-extra-title={item.title}
+          data-extra-desc={item.description}
+          data-extra-img={item.image}
+          class={`extra-card flex-shrink-0 w-[122px] sm:w-[136px] h-[178px] rounded-2xl ${item.bgColor} border ${item.borderColor} p-3.5 flex flex-col justify-between text-left transition-all duration-200 hover:scale-105 hover:brightness-110 active:scale-95 cursor-pointer focus:outline-none ${idx === 0 ? 'ring-2 ring-white scale-102' : 'opacity-90'}`}
+        >
+          <!-- Logo Header -->
+          <div class="h-8 flex items-center justify-start">
+            {item.logoType === 'disney' && (
+              <span class="text-base font-black text-white italic tracking-tighter">Disney+</span>
+            )}
+            {item.logoType === 'hbomax' && (
+              <span class="text-sm font-black text-white tracking-tight uppercase">HBO max</span>
+            )}
+            {item.logoType === 'telecine' && (
+              <div class="leading-none">
+                <span class="text-xs font-black text-white tracking-widest block">TELE</span>
+                <span class="text-xs font-black text-red-500 tracking-widest block">CINE</span>
+              </div>
+            )}
+            {item.logoType === 'premiere' && (
+              <div class="w-6 h-6 rounded-md bg-white text-emerald-800 font-black flex items-center justify-center text-xs">
+                P
+              </div>
+            )}
+            {item.logoType === 'sportynet' && (
+              <span class="text-xs font-black text-red-500 italic tracking-wider">SportyNet<span class="text-white">+</span></span>
+            )}
+            {item.logoType === 'paramount' && (
+              <div class="flex items-center gap-1">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.5L19.5 19h-15L12 5.5z"/></svg>
+                <span class="text-[10px] font-black text-white uppercase tracking-tighter">Paramount+</span>
+              </div>
+            )}
+            {item.logoType === 'espn' && (
+              <span class="text-xs font-black text-red-500 tracking-wider">ESPN <span class="text-white">6</span></span>
+            )}
+          </div>
+
+          <!-- Middle Info (Name & Price) -->
+          <div class="my-auto">
+            <span class="text-[10px] text-slate-300 font-medium block truncate leading-tight">
+              {item.planName}
+            </span>
+            <span class="text-sm sm:text-base font-black text-white font-display block mt-1 leading-tight">
+              {item.price}
+            </span>
+            <span class="text-[9px] text-slate-400 font-bold uppercase block leading-none">
+              {item.period}
+            </span>
+          </div>
+
+          <!-- Bottom Action Link -->
+          <div class="pt-2 border-t border-white/10">
+            <span class="text-[11px] font-bold text-white underline decoration-white/70 block">
+              Detalhes
+            </span>
+          </div>
+        </button>
+      ))}
+    </div>
+
+    <!-- Value Callout (Why Cinema em Casa beats SKY+) -->
+    <div class="mt-8 p-6 rounded-3xl bg-gradient-to-r from-[#14062f] via-[#1f0947] to-[#14062f] border border-purple-500/40 text-center max-w-3xl mx-auto shadow-card-glow">
+      <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#00f0ff] text-black">
+        VANTAGEM EXCLUSIVA CINEMA EM CASA
+      </span>
+      <h4 class="text-lg sm:text-xl font-black text-white uppercase mt-2 mb-1 font-display">
+        NA SKY+ CADA EXTRA CUSTA ATÉ R$ 59,90/MÊS À PARTE.
+      </h4>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto mb-4">
+        No <strong class="text-[#00f0ff]">Cinema em Casa</strong> você NÃO paga faturas separadas: Premiere, Telecine, HBO, Paramount e Disney já vêm <strong class="text-white">100% liberados</strong> nos nossos planos de 1, 2 e 3 telas a partir de R$ 29,90!
+      </p>
+      <a
+        href="#planos"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+      >
+        <span>VER NOSSOS PLANOS COM TUDO INCLUSO</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  const cards = document.querySelectorAll('.extra-card');
+  const backdrop = document.getElementById('extra-backdrop') as HTMLImageElement;
+  const title = document.getElementById('extra-title');
+  const desc = document.getElementById('extra-desc');
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      // Remove active ring from all
+      cards.forEach(c => {
+        c.classList.remove('ring-2', 'ring-white', 'scale-102');
+        c.classList.add('opacity-90');
+      });
+
+      // Add active to current
+      card.classList.add('ring-2', 'ring-white', 'scale-102');
+      card.classList.remove('opacity-90');
+
+      const newTitle = card.getAttribute('data-extra-title') || '';
+      const newDesc = card.getAttribute('data-extra-desc') || '';
+      const newImg = card.getAttribute('data-extra-img') || '';
+
+      if (title) title.textContent = newTitle;
+      if (desc) desc.textContent = newDesc;
+      if (backdrop && newImg) {
+        backdrop.style.opacity = '0.4';
+        setTimeout(() => {
+          backdrop.src = newImg;
+          backdrop.style.opacity = '1';
+        }, 150);
+      }
+    });
+  });
+</script>
