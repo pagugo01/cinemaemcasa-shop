@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
+---
+
+<Layout
+  title={`Solicitar Teste Grátis de 6 Horas - ${siteConfig.name}`}
+  description="Experimente o Cinema em Casa por 6 horas sem pagar nada e sem compromisso. Mais de 2.500 canais ao vivo, filmes e séries em 4K na sua Smart TV."
+>
+  <div class="py-20 bg-[#070114] flex items-center justify-center min-h-[80vh]">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-tr from-[#ff007a] via-[#7928ca] to-[#00f0ff] p-[2px] shadow-magenta-glow">
+        <div class="w-full h-full bg-[#070114] rounded-[14px] flex items-center justify-center">
+          <svg class="w-8 h-8 text-[#ff007a]" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+          </svg>
+        </div>
+      </div>
+
+      <span class="text-xs font-mono font-black text-[#00f0ff] uppercase tracking-widest">
+        DEGUSTAÇÃO 100% GRATUITA
+      </span>
+
+      <h1 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
+        SOLICITE SEU TESTE GRÁTIS DE 6 HORAS.
+      </h1>
+
+      <p class="text-slate-300 text-base sm:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+        Comprove a qualidade e a estabilidade da nossa plataforma diretamente na sua TV, celular ou TV Box antes de escolher um plano.
+      </p>
+
+      <div class="bg-[#120329] p-8 rounded-3xl border border-purple-500/40 shadow-card-glow text-left mb-8 space-y-4 text-xs sm:text-sm text-slate-300">
+        <div class="flex items-center gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">✓</span>
+          <span>Acesso completo à grade de 2.500 canais e 120.000 filmes</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">✓</span>
+          <span>Sem necessidade de informar cartão de crédito ou CPF</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">✓</span>
+          <span>Entrega de dados de acesso em até 2 minutos no WhatsApp</span>
+        </div>
+      </div>
+
+      <a
+        href={testWaLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-10 py-5 rounded-full text-sm font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow transition hover:scale-105 active:scale-95"
+      >
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span>RECEBER TESTE AGORA NO WHATSAPP</span>
+      </a>
+
+    </div>
+  </div>
+</Layout>

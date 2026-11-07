@@ -1,0 +1,142 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = `${siteConfig.name} - ${siteConfig.tagline} | IPTV 2 e 3 Telas 4K`,
+  description = siteConfig.subTagline,
+  canonical = siteConfig.url
+} = Astro.props;
+
+// Schema JSON-LD
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      "name": siteConfig.name,
+      "url": siteConfig.url,
+      "logo": `${siteConfig.url}/images/hero_institucional.png`,
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+55-51-99786-2095",
+        "contactType": "customer service",
+        "areaServed": "BR",
+        "availableLanguage": "Portuguese"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      "url": siteConfig.url,
+      "name": siteConfig.name,
+      "description": siteConfig.subTagline,
+      "publisher": { "@id": `${siteConfig.url}/#organization` }
+    },
+    {
+      "@type": "Product",
+      "@id": `${siteConfig.url}/#product`,
+      "name": "Assinatura Cinema em Casa 4K (IPTV 1, 2 e 3 Telas)",
+      "description": "Acesso a mais de 2.500 canais ao vivo, filmes e séries em 4K Ultra HD com suporte a múltiplas telas simultâneas.",
+      "brand": { "@type": "Brand", "name": siteConfig.name },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "BRL",
+        "lowPrice": "29.90",
+        "highPrice": "197.00",
+        "offerCount": "4"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteConfig.url}/#faq`,
+      "mainEntity": siteConfig.faqs.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- OpenGraph -->
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content={siteConfig.name} />
+  <meta property="og:image" content={`${siteConfig.url}/images/hero_institucional.png`} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteConfig.url}/images/hero_institucional.png`} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ff007a'><path d='M4 6.47L5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4z'/></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  <style is:global>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #070114;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+    /* Custom Neon Glow Utilities */
+    .neon-text-magenta {
+      text-shadow: 0 0 20px rgba(255, 0, 122, 0.6);
+    }
+    .neon-text-cyan {
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[#070114] selection:bg-[#ff007a] selection:text-white">
+  
+  <Header />
+
+  <main class="flex-grow">
+    <slot />
+  </main>
+
+  <Footer />
+  
+  <WhatsAppButton />
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
+---
+
+<Layout
+  title={`Futebol Ao Vivo & UFC Completo - ${siteConfig.name}`}
+  description="Assista à Libertadores, Sul-Americana, Brasileirão Séries A e B, Champions League e todos os cards do UFC sem delay e em 60 FPS no Cinema em Casa."
+>
+  <div class="py-16 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-black text-red-400 uppercase tracking-widest">
+          A CASA DO ESPORTE AO VIVO
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
+          FUTEBOL E UFC SEM DELAY E EM 60 FPS.
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Todos os campeonatos nacionais e internacionais com narração original em português e sem pagar pacotes adicionais de pay-per-view.
+        </p>
+      </div>
+
+      <!-- Main Action Banner -->
+      <div class="rounded-3xl bg-[#14062f] p-8 sm:p-12 border border-purple-500/40 shadow-card-glow mb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="text-2xl sm:text-4xl font-black text-white uppercase font-display leading-tight mb-4">
+              LIBERTADORES, SUL-AMERICANA E BRASILEIRÃO 2026.
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              Assista a todos os jogos do seu time do coração na Série A e Série B, além das noites épicas de mata-mata da Conmebol Libertadores com estabilidade Anti-Trava 9.0.
+            </p>
+            <div class="grid grid-cols-2 gap-4 text-xs font-semibold text-slate-300 mb-8">
+              <span class="p-3 rounded-xl bg-white/5 border border-purple-500/30">✓ Premiere Clubes 1 ao 10</span>
+              <span class="p-3 rounded-xl bg-white/5 border border-purple-500/30">✓ SporTV 1, 2 e 3 4K</span>
+              <span class="p-3 rounded-xl bg-white/5 border border-purple-500/30">✓ ESPN 1 a 6 + Disney</span>
+              <span class="p-3 rounded-xl bg-white/5 border border-purple-500/30">✓ Canal Combate UFC</span>
+            </div>
+            <a
+              href={testWaLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-black text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow transition hover:scale-105"
+            >
+              TESTAR NOS PRÓXIMOS JOGOS
+            </a>
+          </div>
+
+          <div class="aspect-video rounded-2xl overflow-hidden border border-purple-500/40 shadow-2xl">
+            <img src="/images/hero_futebol.png" alt="Futebol ao Vivo" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

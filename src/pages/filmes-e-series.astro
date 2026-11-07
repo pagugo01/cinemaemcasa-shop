@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
+
+const movies = [
+  { title: 'Pânico 7', genre: 'Terror / Suspense', tag: 'Cinema 4K', img: '/images/poster_15.jpg' },
+  { title: 'Missão: Impossível - Acerto de Contas', genre: 'Ação / Espionagem', tag: 'Tom Cruise', img: '/images/poster_18.jpg' },
+  { title: 'Gladiador II', genre: 'Ação Histórica', tag: 'Sucesso Cinema', img: '/images/paramount_2.jpg' },
+  { title: 'Avatar: A Lenda de Aang', genre: 'Aventura / Fantasia', tag: 'Série Original', img: '/images/poster_17.jpg' },
+  { title: 'Yellowstone', genre: 'Drama / Western', tag: 'Todas Temporadas', img: '/images/paramount_4.jpg' },
+  { title: 'Tulsa King', genre: 'Ação / Crime', tag: 'Sylvester Stallone', img: '/images/paramount_5.jpg' },
+  { title: 'Operação Lioness', genre: 'Espionagem', tag: 'Zoe Saldaña', img: '/images/paramount_6.jpg' },
+  { title: 'Top Gun: Maverick', genre: 'Ação / Aviação', tag: '4K Dolby Vision', img: '/images/paramount_7.jpg' }
+];
+---
+
+<Layout
+  title={`Filmes & Séries On Demand (+120.000 Títulos) - ${siteConfig.name}`}
+  description="Assista aos maiores lançamentos do cinema e séries completas em 4K Ultra HD no Cinema em Casa. Catálogo atualizado diariamente com dublagem e legendas em português."
+>
+  <div class="py-16 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-black text-[#00f0ff] uppercase tracking-widest">
+          CATÁLOGO ON DEMAND 4K
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
+          MAIS DE 120.000 FILMES E SÉRIES.
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Lançamentos que acabaram de sair do cinema, séries completas e conteúdos para toda a família disponíveis a qualquer hora do dia.
+        </p>
+
+        <div class="mt-8">
+          <a
+            href={testWaLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+          >
+            TESTAR CATÁLOGO COMPLETO GRÁTIS
+          </a>
+        </div>
+      </div>
+
+      <!-- Poster Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        {movies.map((m) => (
+          <div class="group relative rounded-2xl overflow-hidden bg-[#120329] border border-purple-900/40 hover:border-[#ff007a] transition-all duration-300 hover:shadow-magenta-glow hover:-translate-y-2">
+            <div class="aspect-poster relative overflow-hidden bg-[#19073b]">
+              <img
+                src={m.img}
+                alt={m.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+              
+              <span class="absolute top-3 left-3 px-2 py-0.5 rounded text-[10px] font-black bg-black/80 text-[#00f0ff] border border-cyan-500/30">
+                4K ULTRA
+              </span>
+
+              <div class="absolute bottom-3 left-3 right-3">
+                <span class="text-[10px] font-bold text-purple-300 uppercase block">{m.genre}</span>
+                <h2 class="text-sm font-black text-white leading-tight mt-1 truncate">{m.title}</h2>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>

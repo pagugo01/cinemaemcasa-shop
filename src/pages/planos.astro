@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
+---
+
+<Layout
+  title={`Planos & Telas (1, 2 e 3 Telas) - ${siteConfig.name}`}
+  description="Compare os planos do Cinema em Casa: Plano Básico 1 Tela (R$ 29,90), Plano Padrão 2 Telas (R$ 39,90), Plano Família 3 Telas (R$ 49,90) e Anual (R$ 197)."
+>
+  <div class="py-16 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Page Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-black text-[#00f0ff] uppercase tracking-widest">
+          GRADE DE ASSINATURAS OFICIAIS
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
+          ESCOLHA O PLANO IDEAL PARA SUA CASA.
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Ativação imediata em 2 minutos via Pix. Sem fidelidade, sem taxas de cancelamento e com suporte prioritário no WhatsApp.
+        </p>
+      </div>
+
+      <!-- Plans Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-20">
+        {siteConfig.plans.map((plan) => {
+          const planWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.planMsg(plan.name))}`;
+          return (
+            <div
+              class={`relative rounded-3xl flex flex-col justify-between p-6 sm:p-7 transition-all duration-300 ${
+                plan.popular
+                  ? 'bg-gradient-to-b from-[#1c0840] via-[#14062f] to-[#0d0221] border-2 border-[#00f0ff] shadow-card-glow lg:-translate-y-2'
+                  : 'bg-[#100326] border border-purple-900/50 hover:border-purple-500/50'
+              }`}
+            >
+              {plan.badge && (
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                  <span class={`px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-md ${plan.badgeColor || 'bg-blue-600 text-white'}`}>
+                    {plan.badge}
+                  </span>
+                </div>
+              )}
+
+              <div>
+                <div class="text-center pt-2 pb-6 border-b border-purple-900/40">
+                  <h2 class="text-base font-black text-white uppercase tracking-tight">
+                    {plan.name}
+                  </h2>
+                  
+                  <span class="inline-block mt-1 text-xs font-bold text-[#00f0ff]">
+                    {plan.screens}
+                  </span>
+
+                  <div class="mt-4 flex items-baseline justify-center gap-1">
+                    <span class="text-xs font-bold text-slate-400">R$</span>
+                    <span class="text-4xl sm:text-5xl font-black text-white font-display tracking-tight">
+                      {plan.price}
+                    </span>
+                    <span class="text-xs text-slate-400 font-semibold">{plan.period}</span>
+                  </div>
+
+                  {plan.equivalent && (
+                    <p class="text-[11px] font-bold text-emerald-400 mt-1">
+                      ({plan.equivalent})
+                    </p>
+                  )}
+
+                  <p class="text-xs text-slate-400 mt-3 leading-snug">
+                    {plan.subtitle}
+                  </p>
+                </div>
+
+                <ul class="py-6 space-y-3 text-xs text-slate-300">
+                  {plan.features.map((feat) => (
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-[#00f0ff] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span class="leading-tight">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="pt-4 border-t border-purple-900/40">
+                <a
+                  href={planWaLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`block w-full py-3.5 px-4 rounded-xl text-center text-xs font-black uppercase tracking-wider transition-all duration-200 ${
+                    plan.popular
+                      ? 'bg-gradient-to-r from-[#00f0ff] to-[#0099ff] text-black hover:opacity-95 shadow-lg shadow-cyan-500/30'
+                      : 'bg-white/10 hover:bg-white/15 text-white border border-purple-500/30'
+                  }`}
+                >
+                  {plan.ctaText}
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Comparison Breakdown Table -->
+      <div class="bg-[#120329] rounded-3xl p-8 border border-purple-900/40">
+        <h3 class="text-2xl font-black text-white uppercase font-display text-center mb-8">
+          Tabela Comparativa de Recursos
+        </h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm text-slate-300">
+            <thead class="text-xs uppercase bg-[#070114] text-slate-400 border-b border-purple-900/40">
+              <tr>
+                <th class="p-4 font-black">Recurso / Benefício</th>
+                <th class="p-4 font-black text-center">Plano Básico (1 Tela)</th>
+                <th class="p-4 font-black text-center text-[#00f0ff]">Plano Padrão (2 Telas)</th>
+                <th class="p-4 font-black text-center text-[#ff007a]">Família VIP (3 Telas)</th>
+                <th class="p-4 font-black text-center text-[#ffcc00]">Anual Ultra (3 Telas)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-purple-900/30 text-xs">
+              <tr>
+                <td class="p-4 font-bold text-white">Telas Simultâneas</td>
+                <td class="p-4 text-center">1 Dispositivo</td>
+                <td class="p-4 text-center font-bold text-[#00f0ff]">2 Dispositivos</td>
+                <td class="p-4 text-center font-bold text-[#ff007a]">3 Dispositivos</td>
+                <td class="p-4 text-center font-bold text-[#ffcc00]">3 Dispositivos</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-white">Canais Ao Vivo (+2.500)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (Full HD)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (4K 60FPS)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (4K 60FPS)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (4K 60FPS)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-white">Filmes & Séries (+120.000)</td>
+                <td class="p-4 text-center text-emerald-400">Liberado</td>
+                <td class="p-4 text-center text-emerald-400">Liberado</td>
+                <td class="p-4 text-center text-emerald-400">Liberado</td>
+                <td class="p-4 text-center text-emerald-400">Prioritário VIP</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-white">Futebol & UFC Pay-Per-View</td>
+                <td class="p-4 text-center text-emerald-400">Incluso</td>
+                <td class="p-4 text-center text-emerald-400">Incluso</td>
+                <td class="p-4 text-center text-emerald-400">Incluso</td>
+                <td class="p-4 text-center text-emerald-400">Incluso 365 Dias</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-white">Economia Anual</td>
+                <td class="p-4 text-center text-slate-400">-</td>
+                <td class="p-4 text-center text-slate-400">-</td>
+                <td class="p-4 text-center text-slate-400">-</td>
+                <td class="p-4 text-center text-emerald-400 font-black">Mais de R$ 390</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>

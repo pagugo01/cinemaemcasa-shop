@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
+---
+
+<Layout
+  title={`Como Funciona & Aparelhos Compatíveis - ${siteConfig.name}`}
+  description="Saiba como instalar e usar o Cinema em Casa na sua Smart TV Samsung, LG, Roku, Fire TV Stick, TV Box e celular em menos de 2 minutos."
+>
+  <div class="py-16 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-black text-[#ff007a] uppercase tracking-widest">
+          SIMPLES, RÁPIDO E INTUITIVO
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
+          COMO FUNCIONA O CINEMA EM CASA.
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Sem cabos, sem furos na parede e sem visitas de técnicos. Você só precisa de uma conexão com a internet.
+        </p>
+      </div>
+
+      <!-- 3 Steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div class="p-8 rounded-3xl bg-[#120329] border border-purple-900/40 text-center relative group hover:border-[#ff007a] transition">
+          <div class="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-tr from-[#ff007a] to-[#7928ca] text-white text-xl font-black flex items-center justify-center shadow-magenta-glow">
+            1
+          </div>
+          <h2 class="text-lg font-black text-white uppercase mb-2">Solicite seu Teste ou Assine</h2>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Fale com nossa equipe no WhatsApp clicando em qualquer botão do site. Em 2 minutos enviamos seus dados de acesso.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-[#120329] border border-purple-900/40 text-center relative group hover:border-[#00f0ff] transition">
+          <div class="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-tr from-[#00f0ff] to-[#0064ff] text-black text-xl font-black flex items-center justify-center shadow-cyan-glow">
+            2
+          </div>
+          <h2 class="text-lg font-black text-white uppercase mb-2">Baixe o App no seu Aparelho</h2>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Instale nosso aplicativo oficial diretamente da loja da sua Smart TV, TV Box, Fire Stick ou celular.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-[#120329] border border-purple-900/40 text-center relative group hover:border-[#ffcc00] transition">
+          <div class="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-tr from-[#ffcc00] to-orange-500 text-black text-xl font-black flex items-center justify-center shadow-yellow-glow">
+            3
+          </div>
+          <h2 class="text-lg font-black text-white uppercase mb-2">Assista em Até 3 Telas</h2>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Pronto! Toda a grade de 2.500 canais e 120.000 filmes liberada imediatamente com resolução 4K Ultra HD.
+          </p>
+        </div>
+      </div>
+
+      <!-- Banner Device Visual (From SKY+ Asset) -->
+      <div class="rounded-3xl bg-[#14062f] p-8 sm:p-12 border border-purple-500/40 text-center">
+        <h2 class="text-2xl sm:text-4xl font-black text-white uppercase font-display mb-4">
+          Compatível com Todos os seus Aparelhos
+        </h2>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto mb-8">
+          Samsung Smart TV (Tizen), LG Smart TV (webOS), Roku TV, Fire TV Stick, Android TV, TV Box, Chromecast, Celular e PC.
+        </p>
+
+        <div class="max-w-3xl mx-auto mb-8">
+          <img src="/images/banner_devices.png" alt="Aparelhos Compatíveis" class="w-full h-auto object-contain" />
+        </div>
+
+        <a
+          href={testWaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 px-8 py-4 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+        >
+          EXPERIMENTAR GRÁTIS NA MINHA TV
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteConfig } from '../data/siteConfig';
+
+const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.defaultMsg)}`;
+
+const channelCategories = [
+  {
+    name: 'Esportes & Pay-Per-View',
+    badge: '4K 60FPS',
+    channels: [
+      'Premiere Clubes 1 ao 10 HD/4K', 'SporTV 1, 2 e 3 4K', 'ESPN, ESPN 2, 3, 4, 5 e 6',
+      'Canal Combate (UFC Completo)', 'BandSports HD', 'DAZN 1 e 2',
+      'CazéTV Transmissões', 'Nosso Futebol Copa do Nordeste', 'Conmebol TV 1 ao 4'
+    ]
+  },
+  {
+    name: 'Filmes & Séries Premium',
+    badge: 'Som Dolby',
+    channels: [
+      'Telecine Premium, Action e Pipoca', 'Telecine Cult, Touch e Fun',
+      'HBO, HBO 2, HBO Family e HBO Plus', 'Warner Channel & Warner TV',
+      'Megapix & Cinemax', 'Sony Channel & Universal TV',
+      'Paramount Network', 'TNT, Space & AXN'
+    ]
+  },
+  {
+    name: 'Canais Abertos & Notícias',
+    badge: 'Ao Vivo 24h',
+    channels: [
+      'TV Globo (Todas as Afiliadas Regionais)', 'SBT HD & Record TV HD',
+      'Band HD & RedeTV!', 'GloboNews 4K & CNN Brasil',
+      'Jovem Pan News & BandNews', 'Record News & TV Cultura'
+    ]
+  },
+  {
+    name: 'Infantis & Desenhos',
+    badge: 'Universo Kids',
+    channels: [
+      'Cartoon Network & Cartoonito', 'Discovery Kids HD',
+      'Nickelodeon & Nick Jr.', 'Gloob & Gloobinho',
+      'Disney Channel & Baby TV', 'Tooncast & Boomerang'
+    ]
+  },
+  {
+    name: 'Documentários & Variedades',
+    badge: 'Full HD',
+    channels: [
+      'Discovery Channel & Discovery Turbo', 'Animal Planet & History Channel',
+      'National Geographic & Nat Geo Wild', 'TLC, Home & Health e Food Network',
+      'HGTV, Arte 1 e Curta!'
+    ]
+  },
+  {
+    name: 'Canais 24 Horas Especiais',
+    badge: 'Exclusivo',
+    channels: [
+      'Chaves & Chapolin 24h', 'Os Simpsons 24h',
+      'Todo Mundo Odeia o Chris 24h', 'Sobrenatural & The Walking Dead 24h',
+      'Filmes Marvel 24h & Star Wars 24h'
+    ]
+  }
+];
+---
+
+<Layout
+  title={`Grade de Canais Ao Vivo (+2.500 Canais) - ${siteConfig.name}`}
+  description="Conheça a grade completa de canais do Cinema em Casa: Esportes, Premiere, Telecine, HBO, Globo regional, infantis e documentários em 4K e 60 FPS."
+>
+  <div class="py-16 bg-[#070114]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-mono font-black text-[#ff007a] uppercase tracking-widest">
+          MAIS DE 2.500 CANAIS LIBERADOS
+        </span>
+        <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
+          A MAIOR GRADE DE TV DO BRASIL.
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Transmissão em alta resolução (4K Ultra HD e 60 FPS) com tecnologia Anti-Trava 9.0 para você não perder nenhum programa ou gol.
+        </p>
+
+        <div class="mt-8 flex justify-center gap-4">
+          <a
+            href={testWaLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-gradient-to-r from-[#ff007a] to-[#7928ca] shadow-magenta-glow hover:scale-105 transition"
+          >
+            TESTAR GRADE COMPLETA GRÁTIS
+          </a>
+        </div>
+      </div>
+
+      <!-- Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {channelCategories.map((cat) => (
+          <div class="p-6 rounded-3xl bg-[#120329] border border-purple-900/40 hover:border-[#00f0ff]/50 transition">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-purple-900/40">
+              <h2 class="text-base font-black text-white uppercase tracking-tight">
+                {cat.name}
+              </h2>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#ff007a]/20 text-[#ff007a] border border-[#ff007a]/40">
+                {cat.badge}
+              </span>
+            </div>
+
+            <ul class="space-y-2.5 text-xs text-slate-300">
+              {cat.channels.map((ch) => (
+                <li class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#00f0ff]"></span>
+                  <span>{ch}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>
