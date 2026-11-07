@@ -1,6 +1,6 @@
 # Cinema em Casa (cinemaemcasa.shop)
 
-> O Melhor da TV e dos Streamings em um só lugar. IPTV 4K para 1, 2 e 3 Telas Simultâneas.
+> O Melhor da TV e dos Streamings em um só lugar. Todo conteúdo em um único aplicativo para 2 e 3 Telas Simultâneas.
 
 - Website: https://cinemaemcasa.shop
 - WhatsApp Oficial: +55 (51) 99786-2095
@@ -8,15 +8,15 @@
 - Catálogo: +2.500 canais ao vivo (Premiere, SporTV, ESPN, Telecine, HBO) e +120.000 filmes e séries on demand.
 
 ## Planos Oficiais:
-- Plano Básico (1 Tela): R$ 29,90/mês
-- Plano Padrão (2 Telas): R$ 39,90/mês [Mais Popular]
-- Plano Família VIP (3 Telas): R$ 49,90/mês [Melhor para Família]
-- Plano Anual Ultra VIP (3 Telas): R$ 197,00/ano (equiv. R$ 16,41/mês) [Maior Economia - 65% OFF]
+- Plano Mensal (2 Telas): R$ 30 por mês [Flexível]
+- Plano Trimestral (2 Telas): De R$ 90 por R$ 70 a cada 3 meses [Economize R$ 20]
+- Plano Semestral (3 Telas): De R$ 180 por R$ 130 a cada 6 meses [Mais Escolhido 🔥]
+- Plano Anual (3 Telas): De R$ 360 por R$ 240 por 1 ano completo (apenas R$ 20/mês) [50% OFF]
 
 ## Recursos Principais:
-- Resolução 4K Ultra HD e 60 FPS
-- Servidor Anti-Trava 9.0 com CDN redundante
-- Sem fidelidade ou taxas de cancelamento
+- Todo o conteúdo integrado em um único aplicativo (o cliente vê tudo sem alternar de app)
+- Resolução 4K Ultra HD nativo 60 FPS
+- Servidor Anti-Travamento CDN Dedicada 9.0
+- Sem contrato e sem fidelidade
 - Teste Grátis de 6 Horas sem cartão de crédito
 - Compatível com Smart TV Samsung, LG, Android TV, Fire TV Stick, TV Box, Celular e PC.
-

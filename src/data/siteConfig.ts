@@ -3,7 +3,7 @@ export const siteConfig = {
   domain: 'cinemaemcasa.shop',
   url: 'https://cinemaemcasa.shop',
   tagline: 'O Melhor da TV e dos Streamings em um só lugar.',
-  subTagline: 'Canais Ao Vivo em 4K, Filmes, Séries, Premiere, Libertadores e UFC. Planos para 1, 2 e 3 Telas sem travamentos.',
+  subTagline: 'Tudo em um único aplicativo! Mais de 2.500 canais ao vivo em 4K, filmes, séries, Premiere, Libertadores e UFC. Planos para 2 e 3 Telas simultâneas.',
   whatsapp: {
     number: '5551997862095',
     display: '(51) 99786-2095',
@@ -19,116 +19,117 @@ export const siteConfig = {
   },
   plans: [
     {
-      id: 'plano-1-tela',
-      name: 'PLANO BÁSICO',
-      badge: null,
-      screens: '1 Tela Conectada',
-      price: '29,90',
-      period: '/mês',
-      equivalent: null,
-      subtitle: 'Ideal para uso individual no celular, TV ou computador',
-      popular: false,
-      ctaText: 'ASSINAR PLANO 1 TELA',
-      features: [
-        'Acesso completo a mais de 120.000 conteúdos',
-        'Qualidade 4K Ultra HD, Full HD e HD',
-        'Canais Ao Vivo: Abertos, Fechados, Esportes e Notícias',
-        'Filmes, Séries e Conteúdos Infantis sob demanda',
-        'Libertadores, Sul-Americana, Champions e UFC ao vivo',
-        'Guia de Programação (EPG) interativo',
-        'Servidor Anti-Travamento CDN Dedicada',
-        'Instalação em Smart TV, TV Box, Fire Stick, Celular ou PC'
-      ]
-    },
-    {
-      id: 'plano-2-telas',
-      name: 'PLANO PADRÃO (2 TELAS)',
-      badge: 'MAIS POPULAR',
+      id: 'mensal',
+      name: 'PLANO MENSAL',
+      badge: 'FLEXÍVEL',
       badgeColor: 'bg-[#00f0ff] text-black font-black',
       screens: '2 Telas Simultâneas',
-      price: '39,90',
-      period: '/mês',
+      oldPrice: null,
+      price: '30',
+      period: 'por mês',
       equivalent: null,
-      subtitle: 'O mais escolhido para casais e quem assiste na sala e quarto',
-      popular: true,
-      ctaText: 'ASSINAR 2 TELAS (MAIS POPULAR)',
-      features: [
-        'Assista em 2 dispositivos ao mesmo tempo sem travar',
-        'Mais de 120.000 conteúdos com catálogo atualizado diariamente',
-        'Qualidade 4K Ultra HD e HDR com som Dolby',
-        'Futebol Ao Vivo: Brasileirão A/B, Libertadores, Copa do Brasil',
-        'UFC Fight Nights e todos os cards numerados',
-        'Grade completa de canais 24h sem lentidão',
-        'Suporte Prioritário VIP via WhatsApp',
-        'Compatível com qualquer TV, celular, computador ou TV Box'
-      ]
-    },
-    {
-      id: 'plano-3-telas',
-      name: 'PLANO FAMÍLIA VIP (3 TELAS)',
-      badge: 'MELHOR PARA FAMÍLIA',
-      badgeColor: 'bg-[#ff007a] text-white font-black',
-      screens: '3 Telas Simultâneas',
-      price: '49,90',
-      period: '/mês',
-      equivalent: null,
-      subtitle: 'Perfeito para a família inteira: esportes, novelas e desenhos',
+      subtitle: 'Perfeito para testar toda a grade em Smart TV e Celular.',
       popular: false,
-      ctaText: 'ASSINAR PLANO FAMÍLIA 3 TELAS',
+      ctaText: 'ASSINAR PLANO MENSAL',
       features: [
-        'Assista em 3 aparelhos ao mesmo tempo em qualquer lugar',
-        'Todos os canais de esportes, filmes e variedades liberados',
-        'UFC, Conmebol Libertadores, NBA e Champions League',
-        'Universo Kids Nickelodeon completo para as crianças',
-        'Streaming sem atraso (Baixo Delay nos jogos)',
-        'Qualidade 4K real com conexão estável',
-        'Ativação imediata em até 2 minutos',
-        'Sem fidelidade ou multas de cancelamento'
+        'Mais de 120.000 Filmes & Séries On Demand',
+        'Canais ao Vivo em 4K nativo 60FPS',
+        'Futebol Pay-Per-View, Libertadores & UFC',
+        '2 Telas Simultâneas Liberadas',
+        'Sem Contrato e Sem Fidelidade',
+        'Servidor Anti-Travamento CDN Dedicada',
+        'Suporte VIP via WhatsApp'
       ]
     },
     {
-      id: 'plano-anual',
-      name: 'PLANO ANUAL ULTRA VIP',
-      badge: 'MAIOR ECONOMIA',
+      id: 'trimestral',
+      name: 'PLANO TRIMESTRAL',
+      badge: 'ECONOMIZE R$ 20',
+      badgeColor: 'bg-[#00e5ff] text-black font-black',
+      screens: '2 Telas Simultâneas',
+      oldPrice: 'De R$ 90',
+      price: '70',
+      period: 'a cada 3 meses',
+      equivalent: null,
+      subtitle: 'Economize R$ 20 contratando o ciclo de 3 meses.',
+      popular: false,
+      ctaText: 'ASSINAR TRIMESTRAL (R$ 70)',
+      features: [
+        'Tudo do Plano Mensal com desconto',
+        '2 Telas Simultâneas Liberadas',
+        'Economia imediata de R$ 20 reais',
+        'Prioridade na atualização de grade e lançamentos',
+        'Guia de Programação (EPG) interativo',
+        'Futebol ao vivo sem delay e sem travar',
+        'Suporte VIP via WhatsApp'
+      ]
+    },
+    {
+      id: 'semestral',
+      name: 'PLANO SEMESTRAL',
+      badge: 'MAIS ESCOLHIDO 🔥',
+      badgeColor: 'bg-gradient-to-r from-[#ff007a] to-[#7928ca] text-white font-black',
+      screens: '3 Telas Simultâneas',
+      oldPrice: 'De R$ 180',
+      price: '130',
+      period: 'a cada 6 meses',
+      equivalent: null,
+      subtitle: 'Liberado para 3 aparelhos simultâneos para toda a família.',
+      popular: true,
+      ctaText: 'ASSINAR SEMESTRAL (MAIS ESCOLHIDO)',
+      features: [
+        '3 Telas Simultâneas Liberadas',
+        'Mais de 120.000 Filmes & Séries em 4K',
+        'Canais ao Vivo e Pay-Per-View inclusos',
+        'Economia de R$ 50 reais no semestre',
+        'Servidor Exclusivo Anti-Oscilação',
+        'Universo Kids e Esportes liberados',
+        'Ativação Imediata via WhatsApp'
+      ]
+    },
+    {
+      id: 'anual',
+      name: 'PLANO ANUAL',
+      badge: '50% OFF (R$ 20/MÊS)',
       badgeColor: 'bg-[#ffcc00] text-black font-black',
       screens: '3 Telas Simultâneas',
-      price: '197,00',
-      period: '/ano',
-      equivalent: 'equivalente a R$ 16,41/mês',
-      subtitle: 'Máxima economia: pague uma única vez e assista o ano inteiro',
+      oldPrice: 'De R$ 360',
+      price: '240',
+      period: 'por 1 ano completo',
+      equivalent: 'O valor mais baixo do mercado: apenas R$ 20 por mês.',
+      subtitle: 'O valor mais baixo do mercado: apenas R$ 20 por mês.',
       popular: false,
-      ctaText: 'GARANTIR PLANO ANUAL COM 65% OFF',
+      ctaText: 'GARANTIR ANUAL (R$ 20/MÊS)',
       features: [
-        '12 Meses de Acesso Completo sem mensalidades recorrentes',
-        '3 Telas Simultâneas liberadas para a casa toda',
-        'Economia de mais de R$ 390 ao ano',
-        'Todos os eventos esportivos PPV liberados 365 dias',
-        'UFC numerados, Brasileirão, Libertadores e Champions',
-        'Lançamentos de cinema atualizados semanalmente',
-        'Servidor Ultra CDN prioritário sem sobrecargas',
-        'Garantia de 7 dias com devolução integral'
+        '3 Telas Simultâneas Liberadas',
+        'Apenas R$ 20 por mês equivalente',
+        'Economia gigante de R$ 120 no ano',
+        'Acesso VIP a todos os lançamentos 365 dias',
+        'Estabilidade garantida o ano todo sem reajuste',
+        'Libertadores, Sul-Americana, Champions e UFC',
+        'Suporte Prioritário VIP 24/7'
       ]
     }
   ],
   heroSlides: [
     {
-      tag: 'ENTRETENIMENTO COMPLETO',
+      tag: 'TUDO EM UM ÚNICO APLICATIVO',
       title: 'O MELHOR DA TV E DOS STREAMINGS EM UM SÓ LUGAR.',
-      description: 'Filmes, séries, esportes ao vivo, canais infantis e documentários reunidos no aplicativo mais rápido e estável do Brasil. Escolha 1, 2 ou 3 telas sem cabos ou antenas.',
-      cta: 'EXPERIMENTAR GRÁTIS',
+      description: 'Chega de abrir vários apps ou pagar faturas separadas! No Cinema em Casa você assiste a canais ao vivo, filmes, séries, esportes e desenhos infantis em um aplicativo leve e ultra veloz. Liberado para 2 e 3 telas.',
+      cta: 'EXPERIMENTAR 6H GRÁTIS',
       image: '/images/hero_institucional.png'
     },
     {
-      tag: 'FUTEBOL E UFC AO VIVO',
-      title: 'VIVA CADA LANCE COM A MÁXIMA EMOÇÃO EM 4K.',
-      description: 'Brasileirão Séries A e B, Conmebol Libertadores, Sul-Americana, Champions League e todos os cards do UFC sem pagar pay-per-view adicional e com narração em português.',
+      tag: 'FUTEBOL E UFC AO VIVO EM 4K',
+      title: 'VIVA CADA LANCE COM A MÁXIMA EMOÇÃO EM 60 FPS.',
+      description: 'Brasileirão Séries A e B, Conmebol Libertadores, Copa do Brasil, Champions League e todos os cards do UFC sem pagar pay-per-view adicional e sem delay nos jogos.',
       cta: 'ASSISTIR AOS JOGOS',
       image: '/images/hero_futebol.png'
     },
     {
       tag: 'CINEMA EM CASA SOB DEMANDA',
       title: 'MARATONE OS MAIORES CLÁSSICOS E LANÇAMENTOS.',
-      description: 'Mais de 120.000 títulos disponíveis na palma da sua mão. Os maiores lançamentos do cinema mundial atualizados toda semana com dublagem e legendas oficiais.',
+      description: 'Mais de 120.000 títulos disponíveis na palma da sua mão. Todos os streamings (Disney+, Max, Prime Video, Telecine, Paramount) reunidos no mesmo catálogo sem custo extra.',
       cta: 'VER CATÁLOGO COMPLETO',
       image: '/images/hero_classicos.webp'
     }
@@ -143,29 +144,28 @@ export const siteConfig = {
   ],
   faqs: [
     {
-      q: 'O que é o Cinema em Casa e como funciona?',
-      a: 'O Cinema em Casa é a plataforma definitiva de streaming e TV ao vivo. Com um único aplicativo e sem precisar de técnicos, antenas ou aparelhos caros de satélite, você assiste a mais de 2.500 canais ao vivo e mais de 120.000 filmes e séries on demand diretamente na sua Smart TV, TV Box, celular ou computador através da sua conexão de internet.'
+      q: 'É verdade que todo o conteúdo fica em um único aplicativo?',
+      a: 'SIM! Essa é a maior vantagem do Cinema em Casa. Você não precisa ficar alternando entre aplicativos diferentes (como Disney, Max, Premiere, etc.) nem pagando assinaturas separadas. Dentro do nosso aplicativo você acessa mais de 2.500 canais ao vivo, todos os jogos de futebol e mais de 120.000 filmes e séries on demand com uma única conta e uma única lista.'
     },
     {
-      q: 'Como funcionam os planos de 2 e 3 telas simultâneas?',
-      a: 'Nossos planos foram pensados para a realidade de qualquer casa. No Plano Padrão (2 Telas), você pode assistir na sala e no quarto simultaneamente sem interferência. No Plano Família VIP e no Plano Anual (3 Telas), até três pessoas da sua família assistem a programações diferentes ao mesmo tempo, seja na TV, no tablet ou no smartphone.'
+      q: 'Como funcionam as 2 e 3 telas simultâneas dos planos?',
+      a: 'No Plano Mensal (R$ 30) e no Plano Trimestral (R$ 70), você tem 2 Telas Simultâneas para assistir na sala e no quarto ao mesmo tempo. No Plano Semestral (R$ 130) e no Plano Anual (R$ 240), você ganha 3 Telas Simultâneas liberadas para toda a família assistir em aparelhos diferentes sem interferência e sem travar.'
     },
     {
-      q: 'O sinal trava durante clássicos de futebol ou eventos do UFC?',
-      a: 'Não! Ao contrário de listas amadoras da internet, o Cinema em Casa opera com uma infraestrutura própria de CDN redundante e tecnologia Anti-Trava 9.0 com servidores localizados em São Paulo e no Rio de Janeiro. Isso garante baixa latência (baixo delay) e sinal 100% fluido em 60 FPS mesmo em finais de campeonato com milhares de pessoas conectadas.'
+      q: 'O sistema trava durante jogos de futebol ou finais de campeonato?',
+      a: 'Não! Nós usamos servidores dedicados de Alta Capacidade com rede CDN no Brasil e tecnologia Anti-Trava 9.0 (Anti-Freeze). Isso garante sinal fluído em 60 FPS, som Dolby e baixíssima latência (baixo delay) mesmo em dias de clássicos e finais.'
     },
     {
       q: 'Como solicito o Teste Grátis de 6 Horas?',
-      a: 'É muito simples e rápido: clique em qualquer botão de "Experimentar Grátis" ou "Solicitar Teste". Você será direcionado para o nosso WhatsApp oficial. Nosso sistema de atendimento imediato gera seus dados de acesso em menos de 2 minutos, sem pedir dados de cartão de crédito e sem nenhum compromisso.'
+      a: 'Basta clicar no botão de WhatsApp. Em menos de 2 minutos nosso suporte gera seu teste gratuito sem exigir cartão de crédito e sem nenhum compromisso.'
     },
     {
       q: 'Quais são as formas de pagamento disponíveis?',
-      a: 'Aceitamos Pix (com liberação instantânea no mesmo minuto) e cartão de crédito. Você não fica preso a contratos com fidelidade abusiva: assina e renova quando quiser de forma 100% transparente e flexível.'
+      a: 'Aceitamos Pix (com ativação imediata instantânea) e cartão de crédito. Não temos contrato de fidelidade: você renova apenas se gostar do serviço.'
     },
     {
-      q: 'O aplicativo funciona na minha Smart TV Samsung ou LG?',
-      a: 'Sim! Nosso aplicativo é totalmente compatível com as Smart TVs Samsung (Tizen), LG (webOS), Roku TV, TCL, Philco, aparelhos Android TV, TV Box, Google Chromecast, Amazon Fire TV Stick, computadores e smartphones (Android e iOS). Enviamos o passo a passo ilustrado e ajudamos você na instalação.'
+      q: 'Funciona na minha Smart TV Samsung ou LG?',
+      a: 'Sim! Nosso aplicativo é 100% compatível com Smart TVs Samsung (Tizen), LG (webOS), Roku TV, TCL, Philco, TV Box, Chromecast, Fire TV Stick, computadores e celulares (Android e iPhone). Ajudamos você passo a passo na instalação!'
     }
   ]
 };
-

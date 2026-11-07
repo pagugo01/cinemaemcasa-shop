@@ -128,15 +128,21 @@ const liveChannels = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
+        <!-- Callout Banner: Tudo em um único aplicativo -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#ff007a]/20 via-[#7928ca]/20 to-[#00f0ff]/20 border border-[#00f0ff]/40 text-[#00f0ff] text-xs font-black tracking-widest uppercase mb-4 shadow-cyan-glow">
+          <span class="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
+          <span>TODO O CONTEÚDO EM UM ÚNICO APLICATIVO</span>
+        </div>
+
         <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight font-display mb-3">
-          ESCOLHA O PLANO IDEAL PRA VOCÊ
+          ASSINATURAS FLEXÍVEIS & SEM MULTA
         </h2>
         <p class="text-sm sm:text-base text-slate-300">
-          O Cinema em Casa tem várias opções, pra você se divertir com o melhor do streaming e da TV ao vivo.
+          Escolha a quantidade de telas simultâneas que melhor atende a sua casa. O cliente vê tudo em um só aplicativo com ativação imediata em 2 minutos no WhatsApp.
         </p>
       </div>
 
-      <!-- 4 Official Plans Grid -->
+      <!-- 4 Official Plans Grid (Identical to User Reference Screenshot) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         {siteConfig.plans.map((plan) => {
           const planWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURIComponent(siteConfig.whatsapp.planMsg(plan.name))}`;
@@ -166,19 +172,20 @@ const liveChannels = [
                     {plan.screens}
                   </span>
 
-                  <div class="mt-4 flex items-baseline justify-center gap-1">
-                    <span class="text-xs font-bold text-slate-400">Apenas R$</span>
+                  <!-- Old price if present -->
+                  {plan.oldPrice && (
+                    <div class="mt-2 text-xs text-slate-400 line-through">
+                      {plan.oldPrice}
+                    </div>
+                  )}
+
+                  <div class="mt-2 flex items-baseline justify-center gap-1">
+                    <span class="text-xs font-bold text-slate-400">R$</span>
                     <span class="text-4xl sm:text-5xl font-black text-white font-display tracking-tight">
                       {plan.price}
                     </span>
                     <span class="text-xs text-slate-400 font-semibold">{plan.period}</span>
                   </div>
-
-                  {plan.equivalent && (
-                    <p class="text-[11px] font-bold text-emerald-400 mt-1">
-                      ({plan.equivalent})
-                    </p>
-                  )}
 
                   <p class="text-xs text-slate-400 mt-3 leading-snug">
                     {plan.subtitle}

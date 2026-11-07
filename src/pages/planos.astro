@@ -6,22 +6,24 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
 ---
 
 <Layout
-  title={`Planos & Telas (1, 2 e 3 Telas) - ${siteConfig.name}`}
-  description="Compare os planos do Cinema em Casa: Plano Básico 1 Tela (R$ 29,90), Plano Padrão 2 Telas (R$ 39,90), Plano Família 3 Telas (R$ 49,90) e Anual (R$ 197)."
+  title={`Planos & Telas (2 e 3 Telas) - ${siteConfig.name}`}
+  description="Compare os planos do Cinema em Casa: Plano Mensal (R$ 30), Plano Trimestral (R$ 70), Plano Semestral (R$ 130) e Plano Anual (R$ 240). Todo conteúdo em um aplicativo só!"
 >
   <div class="py-16 bg-[#070114]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Page Header -->
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-mono font-black text-[#00f0ff] uppercase tracking-widest">
-          GRADE DE ASSINATURAS OFICIAIS
-        </span>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#ff007a]/20 via-[#7928ca]/20 to-[#00f0ff]/20 border border-[#00f0ff]/40 text-[#00f0ff] text-xs font-black tracking-widest uppercase mb-4 shadow-cyan-glow">
+          <span class="w-2 h-2 rounded-full bg-[#00f0ff] animate-pulse"></span>
+          <span>TODO O CONTEÚDO EM UM ÚNICO APLICATIVO</span>
+        </div>
+
         <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight font-display mt-3 mb-4">
-          ESCOLHA O PLANO IDEAL PARA SUA CASA.
+          ASSINATURAS FLEXÍVEIS & SEM MULTA.
         </h1>
-        <p class="text-slate-400 text-base sm:text-lg">
-          Ativação imediata em 2 minutos via Pix. Sem fidelidade, sem taxas de cancelamento e com suporte prioritário no WhatsApp.
+        <p class="text-slate-300 text-base sm:text-lg">
+          Escolha a quantidade de telas simultâneas que melhor atende a sua casa. O cliente vê tudo em um só aplicativo com ativação imediata em 2 minutos no WhatsApp.
         </p>
       </div>
 
@@ -55,19 +57,19 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
                     {plan.screens}
                   </span>
 
-                  <div class="mt-4 flex items-baseline justify-center gap-1">
+                  {plan.oldPrice && (
+                    <div class="mt-2 text-xs text-slate-400 line-through">
+                      {plan.oldPrice}
+                    </div>
+                  )}
+
+                  <div class="mt-2 flex items-baseline justify-center gap-1">
                     <span class="text-xs font-bold text-slate-400">R$</span>
                     <span class="text-4xl sm:text-5xl font-black text-white font-display tracking-tight">
                       {plan.price}
                     </span>
                     <span class="text-xs text-slate-400 font-semibold">{plan.period}</span>
                   </div>
-
-                  {plan.equivalent && (
-                    <p class="text-[11px] font-bold text-emerald-400 mt-1">
-                      ({plan.equivalent})
-                    </p>
-                  )}
 
                   <p class="text-xs text-slate-400 mt-3 leading-snug">
                     {plan.subtitle}
@@ -116,26 +118,40 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
             <thead class="text-xs uppercase bg-[#070114] text-slate-400 border-b border-purple-900/40">
               <tr>
                 <th class="p-4 font-black">Recurso / Benefício</th>
-                <th class="p-4 font-black text-center">Plano Básico (1 Tela)</th>
-                <th class="p-4 font-black text-center text-[#00f0ff]">Plano Padrão (2 Telas)</th>
-                <th class="p-4 font-black text-center text-[#ff007a]">Família VIP (3 Telas)</th>
-                <th class="p-4 font-black text-center text-[#ffcc00]">Anual Ultra (3 Telas)</th>
+                <th class="p-4 font-black text-center">Plano Mensal</th>
+                <th class="p-4 font-black text-center text-[#00f0ff]">Plano Trimestral</th>
+                <th class="p-4 font-black text-center text-[#ff007a]">Plano Semestral</th>
+                <th class="p-4 font-black text-center text-[#ffcc00]">Plano Anual</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-purple-900/30 text-xs">
               <tr>
                 <td class="p-4 font-bold text-white">Telas Simultâneas</td>
-                <td class="p-4 text-center">1 Dispositivo</td>
-                <td class="p-4 text-center font-bold text-[#00f0ff]">2 Dispositivos</td>
-                <td class="p-4 text-center font-bold text-[#ff007a]">3 Dispositivos</td>
-                <td class="p-4 text-center font-bold text-[#ffcc00]">3 Dispositivos</td>
+                <td class="p-4 text-center font-bold text-[#00f0ff]">2 Telas</td>
+                <td class="p-4 text-center font-bold text-[#00f0ff]">2 Telas</td>
+                <td class="p-4 text-center font-bold text-[#ff007a]">3 Telas</td>
+                <td class="p-4 text-center font-bold text-[#ffcc00]">3 Telas</td>
               </tr>
               <tr>
-                <td class="p-4 font-bold text-white">Canais Ao Vivo (+2.500)</td>
-                <td class="p-4 text-center text-emerald-400 font-bold">Sim (Full HD)</td>
-                <td class="p-4 text-center text-emerald-400 font-bold">Sim (4K 60FPS)</td>
-                <td class="p-4 text-center text-emerald-400 font-bold">Sim (4K 60FPS)</td>
-                <td class="p-4 text-center text-emerald-400 font-bold">Sim (4K 60FPS)</td>
+                <td class="p-4 font-bold text-white">Preço do Ciclo</td>
+                <td class="p-4 text-center">R$ 30 / mês</td>
+                <td class="p-4 text-center font-bold text-[#00f0ff]">R$ 70 (3 meses)</td>
+                <td class="p-4 text-center font-bold text-[#ff007a]">R$ 130 (6 meses)</td>
+                <td class="p-4 text-center font-bold text-[#ffcc00]">R$ 240 (1 ano)</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-white">Equivalente Mensal</td>
+                <td class="p-4 text-center">R$ 30,00/mês</td>
+                <td class="p-4 text-center text-emerald-400">R$ 23,33/mês</td>
+                <td class="p-4 text-center text-emerald-400">R$ 21,66/mês</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">R$ 20,00/mês</td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold text-white">Canais Ao Vivo (+2.500 em 4K)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (60FPS)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (60FPS)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (60FPS)</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Sim (60FPS)</td>
               </tr>
               <tr>
                 <td class="p-4 font-bold text-white">Filmes & Séries (+120.000)</td>
@@ -152,11 +168,11 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
                 <td class="p-4 text-center text-emerald-400">Incluso 365 Dias</td>
               </tr>
               <tr>
-                <td class="p-4 font-bold text-white">Economia Anual</td>
+                <td class="p-4 font-bold text-white">Economia do Plano</td>
                 <td class="p-4 text-center text-slate-400">-</td>
-                <td class="p-4 text-center text-slate-400">-</td>
-                <td class="p-4 text-center text-slate-400">-</td>
-                <td class="p-4 text-center text-emerald-400 font-black">Mais de R$ 390</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Economize R$ 20</td>
+                <td class="p-4 text-center text-emerald-400 font-bold">Economize R$ 50</td>
+                <td class="p-4 text-center text-emerald-400 font-black">Economize R$ 120</td>
               </tr>
             </tbody>
           </table>
@@ -166,4 +182,3 @@ const testWaLink = `https://wa.me/${siteConfig.whatsapp.number}?text=${encodeURI
     </div>
   </div>
 </Layout>
-
